@@ -38,4 +38,13 @@ public class ProdutoController {
         }
     }
 
+    @DeleteMapping("{nome}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarProduto(@PathVariable String nome){
+        try {
+            produtoService.deletarProduto(nome);
+        }catch (RuntimeException erro){
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, erro.getMessage());
+        }
+    }
 }

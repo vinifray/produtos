@@ -41,4 +41,8 @@ public class ProdutoService {
         throw new RuntimeException("Produto não encontrado");
     }
 
+    public void deletarProduto(String nome){
+        Produto produto = pesquisarProduto(nome);
+        produtos.remove(produto);
+    }
 }
